@@ -9,8 +9,8 @@ import mushroom_data
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--batch_size', default=100, type=int)
-parser.add_argument('--train_steps', default=1000, type=int)
+parser.add_argument('--batch_size', default=10, type=int)
+parser.add_argument('--train_steps', default=100, type=int)
 
 def main(argv):
     args = parser.parse_args(argv[1:])
@@ -24,7 +24,7 @@ def main(argv):
 
     classifier = tf.estimator.DNNClassifier(
         feature_columns=mushroom_feature_columns,
-        hidden_units=[10, 10],
+        hidden_units=[5, 10],
         n_classes=2)
 
     classifier.train(
